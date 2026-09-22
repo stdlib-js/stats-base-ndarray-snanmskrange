@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,17 +16,28 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { float32ndarray, uint8ndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the range of a one-dimensional single-precision floating-point ndarray according to a mask, ignoring `NaN` values.
+* Calculates the range of a one-dimensional single-precision floating-point ndarray according to a mask, ignoring `NaN` values.
 *
-* @module @stdlib/stats-base-ndarray-snanmskrange
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a one-dimensional mask ndarray.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns range
 *
 * @example
 * var Float32Vector = require( '@stdlib/ndarray-vector-float32' );
 * var Uint8Vector = require( '@stdlib/ndarray-vector-uint8' );
-* var snanmskrange = require( '@stdlib/stats-base-ndarray-snanmskrange' );
 *
 * var x = new Float32Vector( [ 1.0, -2.0, 4.0, 2.0, NaN ] );
 * var mask = new Uint8Vector( [ 0, 0, 1, 0, 0 ] );
@@ -34,12 +45,9 @@
 * var v = snanmskrange( [ x, mask ] );
 * // returns 4.0
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function snanmskrange( arrays: [ float32ndarray, uint8ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = snanmskrange;
